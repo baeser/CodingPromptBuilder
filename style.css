@@ -1,0 +1,342 @@
+/* ===== Tokens ===== */
+:root {
+  --blue-600: #1a7fc4;
+  --blue-500: #2196d3;
+  --blue-400: #4ab0e4;
+  --blue-100: #e3f2fd;
+  --blue-50:  #f0f8ff;
+
+  --green-600: #2e7d32;
+  --green-100: #e8f5e9;
+
+  --gray-900: #1e293b;
+  --gray-700: #475569;
+  --gray-500: #94a3b8;
+  --gray-300: #cbd5e1;
+  --gray-200: #e2e8f0;
+  --gray-100: #f1f5f9;
+  --gray-50:  #f8fafc;
+
+  --white: #ffffff;
+
+  --radius: 10px;
+  --radius-lg: 14px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,.08);
+  --shadow-md: 0 4px 12px rgba(0,0,0,.1);
+
+  --font-sans: "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-mono: "SF Mono", "Cascadia Code", "Fira Code", monospace;
+}
+
+/* ===== Reset ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-sans);
+  color: var(--gray-900);
+  background: var(--gray-50);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--blue-600); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ===== Header ===== */
+header {
+  background: linear-gradient(135deg, var(--blue-600) 0%, var(--blue-400) 100%);
+  color: var(--white);
+  padding: 2rem 2rem 2.5rem;
+  text-align: center;
+}
+
+.brand {
+  margin-bottom: 1rem;
+}
+
+.brand-logo {
+  height: 120px;
+  filter: brightness(0) invert(1); /* white-out the logo on blue bg */
+}
+
+.top-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.nav-link {
+  color: rgba(255,255,255,.8);
+  font-weight: 600;
+  font-size: .95rem;
+  padding: .35rem .75rem;
+  border-radius: 6px;
+  transition: background .2s, color .2s;
+}
+.nav-link:hover,
+.nav-link.is-current {
+  color: var(--white);
+  background: rgba(255,255,255,.18);
+  text-decoration: none;
+}
+
+.eyebrow {
+  font-size: .8rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  opacity: .85;
+  margin-bottom: .35rem;
+}
+
+header h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: .5rem;
+}
+
+.subtitle {
+  max-width: 680px;
+  margin: 0 auto;
+  font-size: 1.05rem;
+  opacity: .92;
+  line-height: 1.55;
+}
+
+/* ===== Main layout ===== */
+main {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 3rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+/* ===== Section headings ===== */
+.section-heading {
+  margin-bottom: 1.25rem;
+}
+
+.section-heading h2 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: .3rem;
+}
+
+.section-heading p {
+  font-size: .95rem;
+  color: var(--gray-700);
+}
+
+.section-heading a {
+  color: var(--blue-600);
+  font-weight: 600;
+}
+
+/* ===== Prompt grid (left side) ===== */
+.prompt-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.prompt-block {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.15rem;
+  box-shadow: var(--shadow-sm);
+  transition: border-color .2s, box-shadow .2s;
+}
+
+.prompt-block:focus-within {
+  border-color: var(--blue-400);
+  box-shadow: 0 0 0 3px rgba(33,150,211,.15);
+}
+
+.prompt-block-wide {
+  grid-column: 1 / -1;
+}
+
+.block-label {
+  font-size: .75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--blue-600);
+  margin-bottom: .4rem;
+}
+
+label {
+  display: block;
+  font-size: .9rem;
+  font-weight: 600;
+  color: var(--gray-700);
+  margin-bottom: .35rem;
+}
+
+input[type="text"],
+input[type="url"],
+textarea {
+  width: 100%;
+  font-family: var(--font-sans);
+  font-size: .92rem;
+  color: var(--gray-900);
+  border: 1px solid var(--gray-300);
+  border-radius: 6px;
+  padding: .6rem .75rem;
+  background: var(--gray-50);
+  transition: border-color .2s;
+  resize: vertical;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--blue-500);
+  background: var(--white);
+}
+
+::placeholder {
+  color: var(--gray-500);
+  font-size: .85rem;
+}
+
+.field-note {
+  font-size: .8rem;
+  color: var(--gray-500);
+  margin-top: .3rem;
+}
+
+/* ===== Results section (right side) ===== */
+.results-section {
+  position: sticky;
+  top: 1.5rem;
+}
+
+.prompt-output-card {
+  background: var(--gray-900);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.35rem;
+  box-shadow: var(--shadow-md);
+  margin-bottom: 1rem;
+  min-height: 320px;
+}
+
+.prompt-output {
+  font-family: var(--font-mono);
+  font-size: .85rem;
+  line-height: 1.65;
+  color: var(--gray-100);
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.prompt-output .placeholder-text {
+  color: var(--gray-500);
+  font-style: italic;
+}
+
+/* ===== Action row ===== */
+.action-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btn-primary {
+  font-family: var(--font-sans);
+  font-size: .95rem;
+  font-weight: 700;
+  color: var(--white);
+  background: var(--blue-600);
+  border: none;
+  border-radius: 8px;
+  padding: .7rem 1.6rem;
+  cursor: pointer;
+  transition: background .2s, transform .1s;
+}
+
+.btn-primary:hover {
+  background: var(--blue-500);
+}
+
+.btn-primary:active {
+  transform: scale(.97);
+}
+
+.copy-feedback {
+  font-size: .9rem;
+  font-weight: 600;
+  color: var(--green-600);
+}
+
+/* ===== Footer ===== */
+footer {
+  text-align: center;
+  padding: 2rem 1.5rem 2.5rem;
+  border-top: 1px solid var(--gray-200);
+  color: var(--gray-700);
+  font-size: .9rem;
+}
+
+.footer-logo {
+  height: 90px;
+  margin-bottom: 1rem;
+  opacity: .85;
+}
+
+footer strong {
+  color: var(--blue-600);
+}
+
+.footer-note {
+  font-size: .82rem;
+  color: var(--gray-500);
+  margin-top: .4rem;
+}
+
+footer a {
+  color: var(--blue-600);
+  font-weight: 600;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+
+  .results-section {
+    position: static;
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    padding: 1.5rem 1rem 2rem;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  .subtitle {
+    font-size: .95rem;
+  }
+
+  main {
+    padding: 1.5rem 1rem;
+  }
+
+  .prompt-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .prompt-output-card {
+    min-height: 200px;
+  }
+}

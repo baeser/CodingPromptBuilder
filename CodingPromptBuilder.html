@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Classroom Code Prompt Builder | Treetown AI</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <img
+        src="treetownAIlogo-vector copy.png"
+        alt="Treetown AI logo"
+        class="brand-logo"
+      />
+    </div>
+    <nav class="top-nav" aria-label="Primary">
+      <a class="nav-link is-current" href="CodingPromptBuilder.html">Prompt Builder</a>
+      <a class="nav-link" href="github-guide.html">GitHub Guide</a>
+    </nav>
+    <p class="eyebrow">Teacher Workshop: Prompt Anatomy</p>
+    <h1>Classroom Code Prompt Builder</h1>
+    <p class="subtitle">
+      Teachers: build a clear, structured prompt that tells an AI coding
+      assistant exactly what classroom tool to create for you. Fill in six
+      short sections &mdash; your role, what the AI should do, what app you
+      need, where it lives, the context behind it, and the must-haves.
+      The better you describe it, the better the tool your students
+      (or you!) will get.
+    </p>
+  </header>
+
+  <main>
+    <section class="form-section" aria-label="Prompt builder form">
+      <div class="section-heading">
+        <h2>Build your prompt in six parts</h2>
+        <p>
+          Each block feeds into the final prompt you'll hand to your AI coding
+          assistant. The live preview on the right updates as you type so you
+          can see your prompt come together in real time. New to GitHub?
+          Check the <a href="github-guide.html">GitHub guide</a> first.
+        </p>
+      </div>
+
+      <div class="prompt-grid">
+        <!-- 1. Your Role -->
+        <div class="prompt-block">
+          <p class="block-label">1. Your Role</p>
+          <label for="userRole">I am a...</label>
+          <input
+            type="text"
+            id="userRole"
+            name="userRole"
+            placeholder="e.g., 3rd grade math teacher, high school English teacher, STEM coordinator"
+            maxlength="120"
+          />
+        </div>
+
+        <!-- 2. AI Role -->
+        <div class="prompt-block">
+          <p class="block-label">2. AI Role</p>
+          <label for="aiRole">The AI should act as...</label>
+          <input
+            type="text"
+            id="aiRole"
+            name="aiRole"
+            placeholder="e.g., a classroom app developer who understands K-12 education"
+            maxlength="160"
+          />
+        </div>
+
+        <!-- 3. App Goal -->
+        <div class="prompt-block prompt-block-wide">
+          <p class="block-label">3. Classroom Tool Goal</p>
+          <label for="appIdea">What classroom tool should your AI coder build?</label>
+          <textarea
+            id="appIdea"
+            name="appIdea"
+            rows="4"
+            placeholder="Describe the problem this tool solves for your classroom. What should students or teachers be able to do with it?&#10;&#10;e.g., A vocabulary practice app where students match terms to definitions, get instant feedback, and I can see which words they struggle with."
+            maxlength="500"
+          ></textarea>
+        </div>
+
+        <!-- 4. Repository -->
+        <div class="prompt-block prompt-block-wide">
+          <p class="block-label">4. Repository</p>
+          <label for="repoUrl">Which GitHub repo should your coding assistant use?</label>
+          <input
+            type="url"
+            id="repoUrl"
+            name="repoUrl"
+            placeholder="e.g., https://github.com/YOUR-USERNAME/vocab-practice-app"
+            maxlength="240"
+          />
+          <p class="field-note">
+            Paste the repo URL if you already created one. It's okay to leave
+            this blank and add it later.
+          </p>
+        </div>
+
+        <!-- 5. Context -->
+        <div class="prompt-block">
+          <p class="block-label">5. Classroom Context</p>
+          <label for="contextDetails">Context and details about your classroom</label>
+          <textarea
+            id="contextDetails"
+            name="contextDetails"
+            rows="5"
+            placeholder="Grade level, subject, number of students, devices available, student needs, time constraints...&#10;&#10;e.g., 28 fourth-graders, 1:1 Chromebooks, 15-minute activity window, several ELL students who need visual supports."
+            maxlength="1000"
+          ></textarea>
+        </div>
+
+        <!-- 6. Must-Haves -->
+        <div class="prompt-block">
+          <p class="block-label">6. Must-Haves</p>
+          <label for="mustHaves">What must this tool include?</label>
+          <textarea
+            id="mustHaves"
+            name="mustHaves"
+            rows="5"
+            placeholder="Key screens, features, or outputs your tool needs.&#10;&#10;e.g., Student login screen, drag-and-drop matching, score summary for the teacher, printable results page, works offline."
+            maxlength="1000"
+          ></textarea>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="results-section"
+      aria-live="polite"
+      aria-label="Generated build prompt"
+    >
+      <div class="section-heading">
+        <h2>Your ready-to-use prompt</h2>
+        <p>
+          Copy this prompt and paste it into your AI coding assistant
+          (like Claude, ChatGPT, or Copilot). It will use your description to
+          build the classroom tool.
+        </p>
+      </div>
+
+      <div class="prompt-output-card">
+        <pre id="promptOutput" class="prompt-output"></pre>
+      </div>
+
+      <div class="action-row">
+        <button type="button" id="copyBtn" class="btn-primary">Copy Prompt</button>
+        <p class="copy-feedback" id="copyFeedback" aria-live="polite"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a href="https://www.treetown.ai" target="_blank" rel="noopener">
+      <img
+        src="treetownAIlogo-vector copy.png"
+        alt="Treetown AI"
+        class="footer-logo"
+      />
+    </a>
+    <p>
+      Built by <strong>Treetown AI</strong> for teacher workshops on
+      prompting and classroom app design.
+    </p>
+    <p class="footer-note">
+      First time with GitHub? Use the
+      <a href="github-guide.html">GitHub guide</a> to get set up before
+      handing your prompt to a coding assistant.
+    </p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
