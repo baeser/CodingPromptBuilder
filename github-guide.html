@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GitHub Guide | Classroom Code Prompt Builder | Treetown AI</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <img
+        src="treetownAIlogo-vector copy.png"
+        alt="Treetown AI logo"
+        class="brand-logo"
+      />
+    </div>
+    <nav class="top-nav" aria-label="Primary">
+      <a class="nav-link" href="CodingPromptBuilder.html">Prompt Builder</a>
+      <a class="nav-link is-current" href="github-guide.html">GitHub Guide</a>
+    </nav>
+    <p class="eyebrow">GitHub setup for beginners</p>
+    <h1>GitHub Setup Guide</h1>
+    <p class="subtitle">
+      Use this page to go from an empty GitHub repo to a working local
+      project that your AI coder assistant can build inside.
+    </p>
+  </header>
+
+  <main class="guide-layout">
+    <section class="guide-section">
+      <div class="section-heading">
+        <h2>Basic workflow</h2>
+        <p>
+          This is the cleanest workshop path when you want to start with a
+          new repo and let the coding assistant build the first version.
+        </p>
+      </div>
+
+      <ol class="step-list">
+        <li>
+          <strong>Create an empty repository on GitHub.</strong>
+          Give it a clear name for the app you want to build.
+        </li>
+        <li>
+          <strong>Copy the repository URL.</strong>
+          You will paste that URL into the prompt builder's repository field.
+        </li>
+        <li>
+          <strong>Create or choose an empty folder on your computer.</strong>
+          This will be the local working folder for the build.
+        </li>
+        <li>
+          <strong>Open that folder in Codex, Claude Code, or another coding assistant.</strong>
+          Open the empty local folder so your coding assistant has a place to
+          create the files.
+        </li>
+        <li>
+          <strong>Ask the coding assistant to connect the folder to GitHub.</strong>
+          Tell them which repo URL to use and ask them to set up the project
+          so the local folder and GitHub repo are connected.
+        </li>
+        <li>
+          <strong>Fill out the Prompt Builder.</strong>
+          Paste the empty repo URL into the repository field, then complete
+          the rest of the prompt blocks.
+        </li>
+        <li>
+          <strong>Paste the finished prompt into your coding assistant.</strong>
+          Ask them to use that repo and local folder as the starting point
+          for the build.
+        </li>
+        <li>
+          <strong>Review, test, commit, and push.</strong>
+          Once the first version works, save the changes back to GitHub.
+        </li>
+      </ol>
+    </section>
+
+    <section class="guide-section">
+      <div class="section-heading">
+        <h2>Manually connecting the local folder to GitHub</h2>
+        <p>Use the option that matches how you prefer to start.</p>
+      </div>
+
+      <div class="tutorial-grid">
+        <article class="tutorial-card">
+          <h3>Option A: Clone into a new folder</h3>
+          <p>
+            This is the simplest path when the repo already exists on GitHub.
+          </p>
+          <pre class="code-block"><code>git clone https://github.com/YOUR-USERNAME/YOUR-REPO.git
+cd YOUR-REPO</code></pre>
+        </article>
+
+        <article class="tutorial-card">
+          <h3>Option B: Connect an empty folder you already made</h3>
+          <p>
+            Use this if you created the local folder first and want to attach
+            it to an empty repo afterward.
+          </p>
+          <pre class="code-block"><code>git init
+git branch -M main
+git remote add origin https://github.com/YOUR-USERNAME/YOUR-REPO.git</code></pre>
+        </article>
+
+        <article class="tutorial-card tutorial-card-wide">
+          <h3>First push after your coding assistant creates files</h3>
+          <p>
+            Once the app exists locally, save the first version back to GitHub.
+          </p>
+          <pre class="code-block"><code>git add .
+git commit -m "Initial app build"
+git push -u origin main</code></pre>
+        </article>
+      </div>
+    </section>
+
+    <section class="guide-section">
+      <div class="section-heading">
+        <h2>Advanced use</h2>
+        <p>Use these when you want more privacy or tighter GitHub control.</p>
+      </div>
+
+      <div class="tutorial-grid">
+        <article class="tutorial-card">
+          <h3>Switch the repo to private</h3>
+          <p>
+            If the project should not be public, change the repository
+            visibility before you start sharing code or collaborators.
+          </p>
+        </article>
+
+        <article class="tutorial-card">
+          <h3>Prefer built-in sign-in first</h3>
+          <p>
+            If your editor or terminal supports GitHub sign-in or GitHub CLI,
+            use that before creating extra credentials.
+          </p>
+        </article>
+
+        <article class="tutorial-card">
+          <h3>Use a PAT only when a tool requires it</h3>
+          <p>
+            If a tool specifically asks for a token, GitHub currently
+            recommends fine-grained personal access tokens when possible.
+          </p>
+        </article>
+
+        <article class="tutorial-card">
+          <h3>Keep tokens out of prompts and code</h3>
+          <p>
+            Never paste a PAT into the prompt builder, a chat transcript, or
+            a committed file. Treat tokens like passwords.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="guide-section">
+      <div class="section-heading">
+        <h2>Official GitHub docs</h2>
+        <p>
+          These links use GitHub's own documentation for the current terms
+          and settings.
+        </p>
+      </div>
+
+      <ul class="resource-list">
+        <li>
+          <a href="https://docs.github.com/en/pages/quickstart">GitHub Pages quickstart</a>
+        </li>
+        <li>
+          <a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility">Setting repository visibility</a>
+        </li>
+        <li>
+          <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens">Managing personal access tokens</a>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <a href="https://www.treetown.ai" target="_blank" rel="noopener">
+      <img
+        src="treetownAIlogo-vector copy.png"
+        alt="Treetown AI"
+        class="footer-logo"
+      />
+    </a>
+    <p>
+      Built by <strong>Treetown AI</strong> for teacher workshops on
+      prompting and classroom app design.
+    </p>
+    <p class="footer-note">
+      Return to the <a href="CodingPromptBuilder.html">Prompt Builder</a>
+      once your repo and local folder are ready.
+    </p>
+  </footer>
+</body>
+</html>
